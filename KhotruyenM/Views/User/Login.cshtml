@@ -1,0 +1,59 @@
+﻿@model KhotruyenM.Models.Users
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/LoginPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/main_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    @Styles.Render("~/Content/css_register")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+    @using (Html.BeginForm("Login", "User"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="warpper mt-2">
+            <div>
+                <form class="custom-form">
+                    <div style="padding-bottom: 50px;">
+                        <h1>Đăng nhập</h1>
+                        <img class="logo-login-form rounded-circle mx-auto d-block" src="~/Content/Images/login-form-logo.png">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: bold;">Địa chỉ Email</label>
+
+                        @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-input" } })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style="font-weight: bold;">Mật khẩu</label>
+
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-input" } })
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="font-weight: bold;">Đăng nhập</button>
+
+                </form>
+            </div>
+        </div>
+    }
+</body>
+</html>
+

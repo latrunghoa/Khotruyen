@@ -1,0 +1,141 @@
+﻿@model PagedList.IPagedList<KhotruyenM.Models.Story>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ControlStory";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+<body>
+    <table class="table" style="width:96%">
+        <tr>
+            <th style="width:200px">
+                <p style="color:yellowgreen;font-size:15px">VIETNAMESE NAME</p>
+            </th>
+            <th style="width:50px">
+                <p style="color:yellowgreen;font-size:15px">CHINESE NAME</p>
+            </th>
+            <th style="width:50px">
+                <p style="color:yellowgreen;font-size:15px">PUBLISHER</p>
+            </th>
+            <th style="width:50px">
+                <p style="color:yellowgreen;font-size:15px">AUTHOR</p>
+            </th>
+            <th>
+                <p style="color:yellowgreen;font-size:15px">COVER IMAGE</p>
+            </th>
+            <th>
+                <p style="color:yellowgreen;font-size:15px">STORY GENRE</p>
+            </th>
+            <th style="width:50px">
+                <p style="color:yellowgreen;font-size:15px">COUNT VIEW</p>
+            </th>
+            <th style="width:50px">
+                <p style="color:yellowgreen;font-size:15px">CREATE DATE</p>
+            </th>
+            <th>
+                <p style="color:yellowgreen;font-size:15px">UPDATE DATE</p>
+            </th>
+            <th>
+                <p style="color:yellowgreen;font-size:15px">RATING</p>
+            </th>
+            <th>
+                <p style="color:yellowgreen;font-size:15px">STORY CONTENT</p>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align:center;color:red;font-size:16px">
+                    <p>@Html.DisplayFor(modelItem => item.vnName)</p>
+                    <p>@Html.DisplayFor(modelItem => item.cnName)</p>
+                </td>
+                <td style="text-align:center;color:white">
+                    @Html.DisplayFor(modelItem => item.cnLink)
+                </td>
+                <td style="text-align:center;color:white">
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td style="text-align:center;color:white">
+                    <img src="@item.Images" style="width:200px;height:150px;margin-top:20px" />
+                </td>
+                <td style="text-align:center;color:white">
+                    @Html.DisplayFor(modelItem => item.TypeStory)
+                </td>
+                <td style="text-align:center;color:white">
+                    @Html.DisplayFor(modelItem => item.CountView)
+                </td>
+                <td style="text-align: center; color: orange; font-size: 16px">
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td style="text-align:center;color:white">
+                    @Html.DisplayFor(modelItem => item.UpdateDate)
+                </td>
+                <td style="text-align:center;color:mediumpurple">
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td style="text-align:center;color:lightblue">
+                    @Html.DisplayFor(modelItem => item.Information)
+                </td>
+                <td style="text-align: center; font-size: 16px">
+                    @Html.ActionLink("Set", "SetTL", new { id = item.StoryId }) |
+                    @Html.ActionLink("Sửa", "EditStory", new { id = item.StoryId }) |
+                    @Html.ActionLink("Xóa", "DeleteStory", new { id = item.StoryId })
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="float:right;font-size:20px;color:white">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="MenuTrang" style="text-align:center;padding:0 20px 0 20px;font-size:20px;letter-spacing:10px">
+        @Html.PagedListPager(Model, page => Url.Action("ControlPhim", new { page = page }))
+    </div>
+</body>
+
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+<style type="text/css">
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+                $(this).append(' <a href="javascript:void(0);" class="read-more">đọc tiếp...</a > ');
+                $(this).append('<span class="more-text">' + removedStr + '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+
+        14
+
+    });
+</script>
+<style>
+    .show-read-more .more-text {
+        display: none;
+    }
+</style>
+
+

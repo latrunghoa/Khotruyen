@@ -1,0 +1,123 @@
+﻿@model KhotruyenM.Models.Chapter
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/DetailStory.cshtml";
+}
+
+<div class="nav justify-content-center">
+    <h2>@Html.DisplayFor(model => model.ChapterNumber)</h2>
+</div>
+<br>
+<br>
+<div class="nav justify-content-center">
+    <div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <svg width="16" height="16" fill="currentColor" class="bi bi-border-width" viewBox="0 0 16 16">
+                    <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                Chapter
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="Chapter_1.html">Chapter 1</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 2</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 3</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 4</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 5</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 6</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 7</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 8</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 9</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 10</a>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="Chapter_2.html" title="Chương 2">
+                <button type="button" class="btn btn-primary ">
+                    <svg width="20" height="24" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Noi Dung-->
+<br>
+
+
+<div id="chapter-info">
+    <div class="container">
+        <br>
+        <div class="chapter-text">
+            @Html.DisplayFor(model => model.Content)
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="nav justify-content-center">
+    <div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <svg width="16" height="16" fill="currentColor" class="bi bi-border-width" viewBox="0 0 16 16">
+                    <path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+                </svg>
+                Chapter
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="Chapter_1.html">Chapter 1</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 2</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 3</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 4</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 5</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 6</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 7</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 8</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 9</a>
+                <a class="dropdown-item" href="Chapter_2.html">Chapter 10</a>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="Chapter_2.html" title="Chương 2">
+                <button type="button" class="btn btn-primary ">
+                    <svg width="20" height="24" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--Comment-->
+<br>
+<br>
+<hr>
+<div class="Container">
+    <div class="col-12 ">
+        <h3>Bình Luận</h3>
+        <div class="media border p-3">
+            <img src="~/Content/Images/Avatar/cat.jpg" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+            <div class="media-body">
+                <textarea rows="3" class="w-100" placeholder="Thêm bình luận"></textarea>
+                <div class="media p-3">
+                    <img src="~/Content/Images/Avatar/cat.jpg" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+                    <div class="media-body">
+                        <h4>Jane Doe <small><i>Posted on September 2 2021</i></small></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="media p-3">
+                    <img src="~/Content/Images/Facebook-Avatar_3.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+                    <div class="media-body">
+                        <h4>Jack cheap<small><i>Posted on September 9 2021</i></small></h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

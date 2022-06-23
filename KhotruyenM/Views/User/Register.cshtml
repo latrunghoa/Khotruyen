@@ -1,0 +1,82 @@
+﻿@model KhotruyenM.Models.Users
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/RegisterPage.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/main_style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    @Styles.Render("~/Content/css_register")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+    @using (Html.BeginForm("Register", "User"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="warpper mt-2">
+            <div>
+                <form class="custom-form">
+                    <div style="padding-bottom: 50px;">
+                        <img class="logo-login-form rounded-circle mx-auto d-block" src="~/Content/Images/login-form-logo.png">
+                    </div>
+
+                    <div class="form-group row">
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleUserName" style="font-weight: bold;">Tên đăng nhập</label>
+
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { placeholder = "Nhập tên đăng nhập", @class = "form-input" } })
+
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" style="font-weight: bold;">Địa chỉ Email</label>
+
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email", @class = "form-input" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style="font-weight: bold;">Mật khẩu</label>
+
+                        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { placeholder = "Nhập mật khẩu", @class = "form-input" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" style="font-weight: bold;">Biệt danh</label>
+
+                        @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { placeholder = "Nhập biệt danh", @class = "form-input" } })
+                        @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary btn-block" style="font-weight: bold;">Tạo tài khoản</button>
+                    <p class="mt-2 " style="text-align: center;"><a href="@Url.Action("Login", "User")">Đã có tài khoản - trở về đăng nhập</a></p>
+                </form>
+            </div>
+        </div>
+    }
+</body>
+
+</html>
+

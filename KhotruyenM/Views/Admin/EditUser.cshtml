@@ -1,0 +1,144 @@
+﻿@model KhotruyenM.Models.Users
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="form-group">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                EMAIL:
+            </strong>
+            <strong style="margin-left: 0px">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </strong>
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                BIỆT DANH:
+            </strong>
+            <strong style="margin-left: -20px">
+                @Html.EditorFor(model => model.DisplayName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DisplayName, "", new { @class = "text-danger" })
+            </strong>
+        </div>
+
+        <div class="form-group">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                TÊN ĐĂNG NHẬP:
+            </strong>
+            <strong style="margin-left: -100px">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </strong>
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                MẬT KHẨU TÀI KHOẢN:
+            </strong>
+            <strong style="margin-left: -140px">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </strong>
+        </div>
+
+        <div class="form-group">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                AVATAR TÀI KHOẢN:
+            </strong>
+            <strong style="margin-left: -133px">
+                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                <input type="file" name="fileUpload2" id="fileUpload2" accept="Images/*" style="display:none;" />
+                <input type="button" id="btnUpload2" value="Browser" class="btn btn-success" />
+            </strong>
+            <strong style="margin-left: 33px; font-size: 20px; color: black">
+                NGÀY TẠO:
+            </strong>
+            <strong style="margin-left: -13px">
+                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+            </strong>
+
+        </div>
+        <div class="form-group">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                SET ROLE:
+            </strong>
+            <strong style="margin-left: 116px">
+                @Html.DropDownList("RoleId", new List<SelectListItem> { new SelectListItem{Text = "Admin",Value = "1"},
+               new SelectListItem{Text = "User", Value = "2"},
+           }, new { style = "width:208px;margin-top:15px;text-align:center;font-size:15px", @class = "textbox", })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </strong>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("TRỞ VỀ", "ControlUser", null, new { @class = "back" })
+                <input type="submit" value="Save" class="btn btn-default" style="margin-top:20px;font-size:30px;margin-left:500px;background-color:rebeccapurple" />
+            </div>
+        </div>
+    </div>
+}
+
+
+<style>
+    .form-control {
+        width: 200px;
+        height: 20px;
+        margin-top: 12px;
+        margin-left: 150px;
+    }
+
+    .back {
+        font-size: 20px;
+        margin-left: 40px;
+        background-color: rebeccapurple;
+        border: 2px solid black;
+    }
+
+    .form-control1 {
+        width: 600px;
+        height: 80px;
+        margin-top: 12px;
+        margin-left: 88px;
+    }
+</style>
+@section uploadedituser{
+    <script>
+            $(function () {
+                $('#btnUpload2').click(function () {
+                    $('#fileUpload2').trigger('click');
+                });
+
+                $('#fileUpload2').change(function () {
+                    if (window.FormData !== undefined) {
+                        var fileUpload = $('#fileUpload2').get(0);
+                        var files = fileUpload.files;
+                        var formData = new FormData();
+                        formData.append('file2', files[0]);
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Admin/ProcessUpload2',
+                            contentType: false,
+                            processData: false,
+                            data: formData,
+                            success: function (urlImage) {
+                                $('#pictureUpload2').attr('src', urlImage);
+                                $('#Avatar').val(urlImage);
+                            },
+                            error: function (err) {
+                                alert(err.statusText);
+                            }
+                        });
+                    }
+                })
+            });
+    </script>
+}
+

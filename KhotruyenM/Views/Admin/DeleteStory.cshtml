@@ -1,0 +1,66 @@
+﻿@model KhotruyenM.Models.Story
+@{
+    ViewBag.Title = "DeleteStory";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+<h3 style="font-size:25px;color:white">Bạn có chắc chắn muốn xóa dữ liệu này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt style="text-align:center">
+            <p style="color:yellow;font-size:20px">
+                VIETNAMESE NAME:
+                @Html.DisplayFor(model => model.vnName)
+            </p>
+        </dt>
+
+        <dt>
+        <dt style="text-align:center">
+            <p style="color:yellow;font-size:20px">
+                CHINESE NAME:
+                @Html.DisplayFor(model => model.cnName)
+            </p>
+        </dt>
+        <dt style="text-align:center">
+            <p style="color:yellow;font-size:20px">
+                ORIGINAL STORY:
+                @Html.DisplayFor(model => model.cnLink)
+            </p>
+        </dt>
+
+        <dt style="text-align:center">
+            <p style="color:yellow;font-size:20px">
+                CREATE DATE:
+                @Html.DisplayFor(model => model.CreateDate)
+            </p>
+        </dt>
+
+        <dt style="">
+            <p style="color:yellow;font-size:20px">
+                STORY CONTENT:
+                @Html.DisplayFor(model => model.Information)
+            </p>
+        </dt>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" style="font-size: 20px; background-color: blue" /> |
+            @Html.ActionLink("TRỞ VỀ", "ControlPhim", null, new { @class = "back" })
+        </div>
+    }
+</div>
+<style>
+    .back {
+        font-size: 20px;
+        background-color: blue;
+        border: 2px solid black;
+    }
+</style>
+
