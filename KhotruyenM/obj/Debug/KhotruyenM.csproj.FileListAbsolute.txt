@@ -93,3 +93,10 @@ C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin
 C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\PagedList.xml
 C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\PagedList.Mvc.xml
 C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\obj\Debug\KhotruyenM.Migrations.UpdatetableStoriesindb.resources
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\obj\Debug\KhotruyenM.Migrations.Updatetablechapter.resources
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Net.Http.Formatting.dll
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Web.Http.dll
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Web.Http.WebHost.dll
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Net.Http.Formatting.xml
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Web.Http.xml
+C:\Users\ASUS\OneDrive\Máy tính\Bieu mau Do an Co so\KhotruyenM\KhotruyenM\bin\System.Web.Http.WebHost.xml

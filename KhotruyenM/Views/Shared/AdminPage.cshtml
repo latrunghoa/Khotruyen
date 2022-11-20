@@ -53,7 +53,7 @@
             </button>
 
             <ul class="nav navbar-nav navbar-left navbar-top-links">
-                <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-home fa-fw"></i> Website</a></li>
+                <li><a href="@Url.Action("Home", "Story")"><i class="fa fa-home fa-fw"></i> Website</a></li>
             </ul>
 
             <ul class="nav navbar-right navbar-top-links">
@@ -113,19 +113,25 @@
                 </li>
                 @if (ses != null)
                 {
-                    <li class="nav-item dropdown ">
-                        <div class="nav-link dropdown-toggle btnLogin " id="navbarDropdown" data-toggle="dropdown"
-                             aria-haspopup="true" aria-expanded="false">Trang cá nhân</div>
-                        <div class="dropdown-menu mega-dropdown-userfeature" aria-labelledby="navbarDropdown">
-                            <div class="d-flex flex-column dropdown-distance">
-                                <a href="@Url.Action("Index", "Home")">Website</a>
-                                <a href="@Url.Action("Home", "Admin")">Logout</a>
-                            </div>
-                        </div>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i> Trang cá nhân <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="@Url.Action("Home", "Story")"><i class="fa fa-gear fa-fw"></i> Back to website</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="@Url.Action("Logout", "User")"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            </li>
+                        </ul>
+
                     </li>
                 }
                 else
                 {
+
                 }
             </ul>
             <!-- /.navbar-top-links -->
@@ -163,13 +169,24 @@
                             <a href="@Url.Action("ControlUser", "Admin")"><i class="fa fa-table fa-fw"></i> User management</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Story Controller <span class="fa arrow"></span></a>
+                            <a href="@Url.Action("ControlStory", "Admin")"><i class="fa fa-wrench fa-fw"></i> Story Controller <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="@Url.Action("CreateStory", "Admin")">Create Story</a>
                                 </li>
                                 <li>
                                     <a href="@Url.Action("ControlStory", "Admin")">Edit / Delete Story</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("ControlChapter", "Admin")"><i class="fa fa-sitemap fa-fw"></i> Chapter Controller <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("CreateChapter", "Admin")">Create Chapter</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ControlChapter", "Admin")">Edit / Delete Chapter</a>
                                 </li>
                             </ul>
                         </li>

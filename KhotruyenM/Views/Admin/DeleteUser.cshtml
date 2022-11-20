@@ -4,45 +4,45 @@
     Layout = "~/Views/Shared/FormAdmin.cshtml";
 }
 
-<h3 style="font-size:25px;color:white">Bạn có chắc chắn muốn xóa tài khoản này không?</h3>
+<h3 style="font-size: 30px;color: firebrick">Bạn có chắc chắn muốn xóa tài khoản này không?</h3>
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
+    <dl class="dl-horizontal" style="display: flex; width: 2000px; margin-left: 160px">
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px">
                 EMAIL:
                 @Html.DisplayFor(model => model.Email)
             </p>
         </dt>
 
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 150px">
                 BIỆT DANH:
                 @Html.DisplayFor(model => model.DisplayName)
             </p>
         </dt>
 
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 200px">
                 TÊN TÀI KHOẢN:
                 @Html.DisplayFor(model => model.UserName)
             </p>
         </dt>
 
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
-                MẬT KHẨU TÀI KHOẢN:
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 150px">
+                MẬT KHẨU:
                 @Html.DisplayFor(model => model.Password)
             </p>
         </dt>
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 150px">
                 NGÀY TẠO:
                 @Html.DisplayFor(model => model.CreateDate)
             </p>
         </dt>
-        <dt style="text-align:center">
-            <p style="color: black; font-size: 20px">
+        <dt style="text-align:center; width: min-content; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 200px">
                 AVATAR:
                 <img src="@Html.DisplayFor(model => model.Avatar)" style="width:200px;height:150px;margin-top:20px" />
             </p>
@@ -53,16 +53,17 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" style="font-size: 20px; background-color: black" /> |
+        <div class="form-actions no-color" style=" margin: 60px 0 0 1200px">
+            <input type="submit" value="Delete" class="btn btn-default" style="font-size: 20px; background-color: honeydew; border: 2px solid" /> |
             @Html.ActionLink("TRỞ VỀ", "ControlUser", null, new { @class = "back" })
         </div>
     }
 </div>
 <style>
     .back {
+        font-family: ui-sans-serif;
         font-size: 20px;
-        background-color: white;
+        background-color: honeydew;
         border: 2px solid black;
     }
 </style>

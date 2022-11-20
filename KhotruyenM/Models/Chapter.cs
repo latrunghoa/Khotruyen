@@ -26,7 +26,7 @@ namespace KhotruyenM.Models
 
         public DateTime CreateDate { get; set; }
 
-        public long StoryId { get; set; }
+        public string StoryName { get; set; }
 
         public Story Story { get; set; }
 

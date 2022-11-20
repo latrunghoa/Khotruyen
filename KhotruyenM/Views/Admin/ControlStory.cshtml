@@ -6,78 +6,77 @@
 }
 
 <body>
-    <table class="table" style="width:96%">
+    <table class="table" style="width: 96%">
         <tr>
-            <th style="width:200px">
-                <p style="color:yellowgreen;font-size:15px">VIETNAMESE NAME</p>
+            <th style="width: 170px; text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size:15px">VIETNAMESE NAME</p>
             </th>
-            <th style="width:50px">
-                <p style="color:yellowgreen;font-size:15px">CHINESE NAME</p>
+            @*<th style="width: 50px; text-align: center">
+                    <p style="color: darkslategray; margin-top: 20px; font-size: 15px">chinese name</p>
+                </th>*@
+            <th style="width: 50px; text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">PUBLISHER</p>
             </th>
-            <th style="width:50px">
-                <p style="color:yellowgreen;font-size:15px">PUBLISHER</p>
+            <th style="width: 50px; text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">AUTHOR</p>
             </th>
-            <th style="width:50px">
-                <p style="color:yellowgreen;font-size:15px">AUTHOR</p>
+            <th style=" text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">COVER IMAGE</p>
             </th>
-            <th>
-                <p style="color:yellowgreen;font-size:15px">COVER IMAGE</p>
+            <th style=" text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">STORY GENRE</p>
             </th>
-            <th>
-                <p style="color:yellowgreen;font-size:15px">STORY GENRE</p>
+            <th style="width: 50px; text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">COUNT VIEW</p>
             </th>
-            <th style="width:50px">
-                <p style="color:yellowgreen;font-size:15px">COUNT VIEW</p>
+            <th style="width: 50px; text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">CREATE DATE</p>
             </th>
-            <th style="width:50px">
-                <p style="color:yellowgreen;font-size:15px">CREATE DATE</p>
+            <th style=" text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">UPDATE DATE</p>
             </th>
-            <th>
-                <p style="color:yellowgreen;font-size:15px">UPDATE DATE</p>
+            <th style=" text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">RATING</p>
             </th>
-            <th>
-                <p style="color:yellowgreen;font-size:15px">RATING</p>
-            </th>
-            <th>
-                <p style="color:yellowgreen;font-size:15px">STORY CONTENT</p>
+            <th style=" text-align: center">
+                <p style="color: darkslategray; margin-top: 20px; font-size: 15px">STORY CONTENT</p>
             </th>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td style="text-align:center;color:red;font-size:16px">
+                <td style="text-align: center; color: red">
                     <p>@Html.DisplayFor(modelItem => item.vnName)</p>
-                    <p>@Html.DisplayFor(modelItem => item.cnName)</p>
+                    @*<p>@Html.DisplayFor(modelItem => item.cnName)</p>*@
                 </td>
-                <td style="text-align:center;color:white">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.cnLink)
                 </td>
-                <td style="text-align:center;color:white">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.Author)
                 </td>
-                <td style="text-align:center;color:white">
-                    <img src="@item.Images" style="width:200px;height:150px;margin-top:20px" />
+                <td style="text-align:center;color:black">
+                    <img src="@item.Images" style="width:200px;height:150px;" />
                 </td>
-                <td style="text-align:center;color:white">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.TypeStory)
                 </td>
-                <td style="text-align:center;color:white">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.CountView)
                 </td>
-                <td style="text-align: center; color: orange; font-size: 16px">
+                <td style="text-align: center; color: black">
                     @Html.DisplayFor(modelItem => item.CreateDate)
                 </td>
-                <td style="text-align:center;color:white">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.UpdateDate)
                 </td>
-                <td style="text-align:center;color:mediumpurple">
+                <td style="text-align:center;color:black">
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
                 <td style="text-align:center;color:lightblue">
                     @Html.DisplayFor(modelItem => item.Information)
                 </td>
                 <td style="text-align: center; font-size: 16px">
-                    @Html.ActionLink("Set", "SetTL", new { id = item.StoryId }) |
                     @Html.ActionLink("Sửa", "EditStory", new { id = item.StoryId }) |
                     @Html.ActionLink("Xóa", "DeleteStory", new { id = item.StoryId })
                 </td>
@@ -137,5 +136,3 @@
         display: none;
     }
 </style>
-
-

@@ -1,0 +1,111 @@
+﻿@model PagedList.IPagedList<KhotruyenM.Models.Chapter>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ControlChapter";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+<body>
+    <table class="table" style="width:96%">
+        <tr>
+            <th style="width:50px">
+                <p style="color: black; font-size: 15px">CHAPTER NUMBER</p>
+            </th>
+            <th style="width:200px">
+                <p style="color: black; font-size: 15px">CHPATER NAME</p>
+            </th>
+            <th style="width:50px">
+                <p style="color: black; font-size: 15px">VIEW</p>
+            </th>
+            <th style="width:50px">
+                <p style="color: black; font-size: 15px">CREATE DATE</p>
+            </th>
+            <th>
+            <th style="width:50px">
+                <p style="color: black; font-size: 15px">CONTENT</p>
+            </th>
+            <th>
+                <p style="color: black; font-size: 15px">STORY NAME</p>
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="text-align: center; color: black; font-size: 16px">
+                    <p>@Html.DisplayFor(modelItem => item.ChapterNumber)</p>
+                </td>
+                <td style="text-align: center; color: black">
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td style="text-align: center; color: black">
+                    @Html.DisplayFor(modelItem => item.CountView)
+                </td>
+                <td style="text-align: center; color: black">
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td style="text-align: center; color: black; font-size: 16px">
+                    @Html.DisplayFor(modelItem => item.Content)
+                </td>
+                <td style="text-align: center; color: black">
+                    @Html.DisplayFor(modelItem => item.StoryName)
+                </td>
+                <td style="text-align: center; font-size: 16px">
+                    @Html.ActionLink("Sửa", "EditChapter", new { id = item.ChapterId }) |
+                    @Html.ActionLink("Xóa", "DeleteChapter", new { id = item.ChapterId })
+                </td>
+            </tr>
+        }
+    </table>
+    <div style="float: right; font-size: 20px; color: black">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /@Model.PageCount
+    </div>
+    <div class="MenuTrang" style="text-align:center;padding:0 20px 0 20px;font-size:20px;letter-spacing:10px">
+        @Html.PagedListPager(Model, page => Url.Action("ControlChapter", new { page = page }))
+    </div>
+</body>
+
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+<style type="text/css">
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+                $(this).append(' <a href="javascript:void(0);" class="read-more">đọc tiếp...</a > ');
+                $(this).append('<span class="more-text">' + removedStr + '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+
+        14
+
+    });
+</script>
+<style>
+    .show-read-more .more-text {
+        display: none;
+    }
+</style>

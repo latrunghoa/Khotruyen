@@ -11,13 +11,8 @@ namespace KhotruyenM.Controllers
     {
         ApplicationDbContext data = new ApplicationDbContext();
         // GET: Chapter
-        public ActionResult Home()
-        {
-            var home = from s in data.chapters select s;
-            return View(home);
-        }
 
-        public ActionResult Detail(int id)
+        public ActionResult DetailChapter(int id)
         {
             var infos = data.chapters.Where(n => n.ChapterId == id).First();
             return View(infos);

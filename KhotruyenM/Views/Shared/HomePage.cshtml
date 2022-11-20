@@ -28,7 +28,7 @@
 
     <div class="topNav  bg-light" style="z-index: 3;position: relative;">
         <nav class="container navbar navbar-expand-lg bg-light navbar-light">
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")"><h1>Kho<span style="color: #F18121;">truyện</span></h1></a>
+            <a class="navbar-brand" href="@Url.Action("Home", "Story")"><h1>Kho<span style="color: #F18121;">truyện</span></h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -156,7 +156,7 @@
                                  aria-haspopup="true" aria-expanded="false">Trang cá nhân</div>
                             <div class="dropdown-menu mega-dropdown-userfeature" aria-labelledby="navbarDropdown">
                                 <div class="d-flex flex-column dropdown-distance">
-                                    <a href="@Url.Action("Home", "User")">Thông tin tài khoản</a>
+                                    <a href="@Url.Action("ChangeInformation", "User")">Thông tin tài khoản</a>
                                     <a href="@Url.Action("Logout", "User")">Đăng xuất</a>
                                 </div>
                             </div>
@@ -186,14 +186,14 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="~/Content/Images/Battle-Through-the-Heavens.jpg" alt="First slide">
+                            <img class="d-block w-100" src="~/Content/Images/onePiece.jpg" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>My Caption Title (1st Image)</h5>
                                 <p>The whole caption will only show up if the screen is at least medium size.</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block w-100" src="~/Content/Images/dau-pha-thuong-khung-2-thumbnail.jpg" alt="Second slide">
+                            <img class="d-block w-100" src="~/Content/Images/maxresdefault.jpg" alt="Second slide">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="~/Content/Images/harryPotter.jpg" alt="Third slide">
@@ -212,6 +212,9 @@
                 <!-- End of Carousel -->
 
                 @RenderBody()
+                @Scripts.Render("~/bundles/jquery")
+                @Scripts.Render("~/bundles/bootstrap")
+                @RenderSection("scripts", required: false)
 
                 <!-- Type of China Story -->
                 <div>
@@ -228,12 +231,12 @@
                                      alt="">
                             </a>
                             <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
+                                <p>One Piece</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
-                            <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
+                            <a href="#">
+                                <img class="updated-story-image " src="~/Content/Images/longVuongTruyenThuyet2.jpg"
                                      alt="">
                             </a>
                             <div class="image-content">
@@ -242,56 +245,20 @@
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
                             <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
+                                <img class="updated-story-image " src="~/Content/Images/nanatsu2.jpg"
                                      alt="">
                             </a>
                             <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
+                                <p>Nanatsu No Taizai</p>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
                             <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
+                                <img class="updated-story-image " src="~/Content/Images/tuyetTheDuongMon2.jpg"
                                      alt="">
                             </a>
                             <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
-                            <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
-                                     alt="">
-                            </a>
-                            <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
-                            <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
-                                     alt="">
-                            </a>
-                            <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
-                            <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
-                                     alt="">
-                            </a>
-                            <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-6 p-0 image-box">
-                            <a href="./truyen/truyenvd.html">
-                                <img class="updated-story-image " src="~/Content/Images/onePiece-img2.jpg"
-                                     alt="">
-                            </a>
-                            <div class="image-content">
-                                <p>Truyền Thuyết Long Vương</p>
+                                <p>Tuyệt Thế Dương Môn</p>
                             </div>
                         </div>
 
@@ -311,14 +278,14 @@
                                 <div class="row">
                                     <div class="col-xl-4 col-sm-4 col-4 ml-2">
                                         <a href="./truyen/truyenvd.html">
-                                            <img class="ranking-1_icon" src="~/Content/Images/nanatsu2.jpg"
+                                            <img class="ranking-1_icon" src="~/Content/Images/Story/thập bát chưởng.jpg"
                                                  alt="">
                                         </a>
                                     </div>
                                     <div class="col-xl-7 col-sm-7 col-7">
-                                        <div class="topView-story"><a href="./truyen/truyenvd.html">Vũ động càng khôn</a></div>
-                                        <p class="topView-author">Thiên Tầm Thổ Đậu</p>
-                                        <p class="topview-viewer">12314664 lượt xem</p>
+                                        <div class="topView-story"><a href="https://localhost:44316/Story/Detail/10004">BẮT ĐẦU CƯỚP MẤT HÀNG LONG THẬP BÁT CHƯỞNG</a></div>
+                                        <p class="topView-author">Cửu Hỏa</p>
+                                        <p class="topview-viewer">100 lượt xem</p>
                                     </div>
                                 </div>
                                 <hr style="height: 1px;width: 90%; background-color: #ffffff">
@@ -326,38 +293,6 @@
                             <li>
                                 <div class="row">
                                     <div class="col-xl-4  col-sm-4 col-4 ml-2 ">
-                                        <a href="./truyen/truyenvd.html">
-                                            <img class="ranking-1_icon" src="~/Content/Images/nanatsu2.jpg"
-                                                 alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-xl-7 col-sm-7 col-7">
-                                        <div class="topView-story"><a href="./truyen/truyenvd.html">Vũ động càng khôn</a></div>
-                                        <p class="topView-author">Thiên Tầm Thổ Đậu</p>
-                                        <p class="topview-viewer">12314664 lượt xem</p>
-                                    </div>
-                                </div>
-                                <hr style="height: 1px;width: 90%; background-color: #ffffff">
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xl-4  col-sm-4 col-4 ml-2 ">
-                                        <a href="./truyen/truyenvd.html">
-                                            <img class="ranking-1_icon" src="~/Content/Images/nanatsu2.jpg"
-                                                 alt="">
-                                        </a>
-                                    </div>
-                                    <div class="col-xl-7 col-sm-7 col-7">
-                                        <div class="topView-story"><a href="./truyen/truyenvd.html">Vũ động càng khôn</a></div>
-                                        <p class="topView-author">Thiên Tầm Thổ Đậu</p>
-                                        <p class="topview-viewer">12314664 lượt xem</p>
-                                    </div>
-                                </div>
-                                <hr style="height: 1px;width: 90%; background-color: #ffffff">
-                            </li>
-                            <li>
-                                <div class="row">
-                                    <div class="col-xl-4 col-sm-4 col-4 ml-2 ">
                                         <a href="./truyen/truyenvd.html">
                                             <img class="ranking-1_icon" src="~/Content/Images/nanatsu2.jpg"
                                                  alt="">
@@ -405,8 +340,8 @@
                         <div class="footers-logo">
                             <img src="~/Content/Images/logo.png" alt="Logo" style="width:100px;">
                         </div>
-                        <div class="footers-info mt-3">
-                            <p>Website cập nhật truyện sớm nhất Trường Đại học Bà Rịa - Vũng Tàu</p>
+                        <div class="footers-info mt-3" style="text-align:center">
+                            <p>Website cập nhật truyện sớm nhất</p>
                         </div>
                         <div class="social-icons">
                             <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-2x social"></i></a>
@@ -427,17 +362,17 @@
                     <div class="col-xs-12 col-sm-6 col-md-3 footers-three">
                         <h5>Thông tin liên hệ </h5>
                         <ul class="list-unstyled">
-                            <li><a href="maintenance.html">fb:facebook.com</a></li>
-                            <li><a href="contact.html"> gmail: gmail@gmail.com</a></li>
-                            <li><a href="about.html">Số điện thoại: 012345654</a></li>
+                            <li><a href="https://www.facebook.com/trunghoa.la.5">facebook</a></li>
+                            <li><a href="#"> Gmail: latrunghoa113@gmail.com</a></li>
+                            <li><a href="#">Phone: 0938320704</a></li>
                         </ul>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-3 footers-four">
                         <h5>Liên kết </h5>
                         <ul class="list-unstyled">
-                            <li><a href="maintenance.html">sinhvien.bvu.edu.vn</a></li>
-                            <li><a href="contact.html">baothanhnien</a></li>
-                            <li><a href="about.html">baodoibaohai</a></li>
+                            <li><a href="https://www.hutech.edu.vn/">đại học Hutech</a></li>
+                            <li><a href="https://thanhnien.vn/">bao thanh niên</a></li>
+                            <li><a href="https://tuoitre.vn/">báo tuổi trẻ</a></li>
 
                         </ul>
                     </div>
@@ -449,9 +384,9 @@
         <section class="disclaimer bg-light border">
             <div class="container">
                 <div class="row ">
-                    <div class="col-md-12 py-2">
+                    <div class="col-md-12 py-2" style="text-align:center">
                         <small>
-                            Cái này là cái description của footer
+                            Liên Hệ Bản Quyền - Gmail
                         </small>
                     </div>
                 </div>
@@ -461,17 +396,14 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col-md-12 pt-3">
-                        <p class="text-muted">© 2018 xyz Software Pvt. Ltd.</p>
+                        <p class="text-muted">© 2022 Kho Truyện Software Pvt. Ltd.</p>
                     </div>
                 </div>
             </div>
         </section>
-    </div>
 </body>
 
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
-@RenderSection("scripts", required: false)
+
 </html>

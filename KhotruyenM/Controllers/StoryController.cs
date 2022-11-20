@@ -11,25 +11,7 @@ namespace KhotruyenM.Controllers
     public class StoryController : Controller
     {
         ApplicationDbContext data = new ApplicationDbContext();
-        //public ActionResult Phimbo()
-        //{
-        //    var phimbo = from s in data.stories.Where(n => n.CategoryId == "2")
-        //                 select s;
-        //    return View(phimbo);
-        //}
-        //public ActionResult Phimle()
-        //{
-        //    var phimle = from s in data.Films.Where(n => n.TypeFilm == "Phim lẻ")
-        //                 select s;
-        //    return View(phimle);
-        //}
-        //public ActionResult Phimchieurap()
-        //{
-        //    var phimchieurap = from s in data.Films.Where(n => n.TypeFilm == "Phim chiếu rạp")
-        //                       select s;
-        //    return View(phimchieurap);
-        //}
-
+        
 
         public ActionResult Home()
         {

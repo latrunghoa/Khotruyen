@@ -20,7 +20,7 @@
             @Html.ValidationMessageFor(model => model.vnName, "", new { @class = "text-danger" })
         </strong>
 
-        <strong style="margin: 0px 70px ; font-size: 20px; color: black">
+        <strong style="margin: 0px 98px 0 70px ; font-size: 20px; color: black">
             AUTHOR:
         </strong>
         <strong>
@@ -38,7 +38,7 @@
             @Html.ValidationMessageFor(model => model.cnName, "", new { @class = "text-danger" })
         </strong>
 
-        <strong style="margin: 0px 45px 0px 70px; font-size: 20px; color: black">
+        <strong style="margin: 0px 72px 0px 70px; font-size: 20px; color: black">
             TRUYỆN GỐC:
         </strong>
         <strong style="margin-left: -22px">
@@ -69,10 +69,13 @@
                 THỂ LOẠI:
             </strong>
             <strong style="margin-left: 130px">
-                @Html.DropDownList("TypeStory", new List<SelectListItem> { new SelectListItem{Text = "Phim bộ",Value = "Phim bộ"},
-               new SelectListItem{Text = "Phim chiếu rạp", Value = "Phim chiếu rạp"},
-               new SelectListItem{Text = "Phim lẻ", Value = "Phim lẻ"},
-           }, new { style = "width:208px;margin-top:15px;text-align:center;font-size:15px", @class = "textbox", })
+                @Html.DropDownList("TypeStory", new List<SelectListItem> { new SelectListItem{Text = "Đô thị",Value = "1"},
+               new SelectListItem{Text = "Tiên hiệp", Value = "2"},
+               new SelectListItem{Text = "Huyền ảo", Value = "3"},
+               new SelectListItem{Text = "Kiếm hiệp", Value = "4"},
+               new SelectListItem{Text = "Võng Du", Value = "5"},
+               new SelectListItem{Text = "Đồng nhân", Value = "6"},
+           }, new { style = "width:208px;margin-top:15px;text-align:center;font-size: 20px", @class = "textbox", })
                 @Html.ValidationMessageFor(model => model.TypeStory, "", new { @class = "text-danger" })
             </strong>
             <strong style="margin: 0px 130px 0px 76px; font-size: 20px; color: black">
@@ -88,10 +91,10 @@
             <strong style="margin: 0px 206px 0px 100px; font-size: 20px; color: black">
                 ẢNH BÌA:
             </strong>
-            <strong style="margin-left: -66px">
+            <strong style="margin-left: -66px; width: 216px">
                 @Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
-                <input type="file" name="fileUpload" id="fileUpload" accept="Images/*" style="display:none;" />
+                <input type="file" name="fileUpload" id="fileUpload" accept="Image/*" style="display:none;" />
                 <input type="button" id="btnUpload" value="Browser" class="btn btn-success" />
             </strong>
             <strong style="margin-left: 68px; font-size: 20px; color: black">
@@ -110,20 +113,28 @@
 
 
 
-            <strong style="margin-left: 0px">
+            <strong style="margin-left: 35px">
                 @Html.EditorFor(model => model.Information, new { htmlAttributes = new { @class = "form-control1" } })
                 @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
             </strong>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-offset-2 col-md-10" style="margin-left: 85px">
                 @Html.ActionLink("TRỞ VỀ", "Home", null, new { @class = "back" })
-                <input type="submit" value="Create" class="btn btn-default" style="font-size:20px;margin-left:1000px;background-color:red" />
+                <input type="submit" value="Create" class="btn btn-default" style="font-size:20px; margin-left: 750px; background-color:honeydew; border: 2px solid black" />
             </div>
         </div>
     </div>
 }
+<style>
+
+    .back {
+        font-size: 20px;
+        background-color: honeydew;
+        border: 2px solid black;
+    }
+</style>
 
 @section upload{
     <script>

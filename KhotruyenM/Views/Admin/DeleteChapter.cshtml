@@ -1,0 +1,77 @@
+﻿@model KhotruyenM.Models.Chapter
+@{
+    ViewBag.Title = "DeleteChapter";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+<h3 style="font-size: 30px;color: firebrick">Bạn có chắc chắn muốn xóa dữ liệu này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal" style="display: flex; margin-left: 0px">
+        <dt style="text-align: center; width: 300px; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 230px">
+                SỐ CHƯƠNG:
+                <br>
+                @Html.DisplayFor(model => model.ChapterNumber)
+            </p>
+        <dt style="text-align: center; width: 300px; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 160px">
+                TÊN CHƯƠNG:
+                <br>
+                @Html.DisplayFor(model => model.Name)
+            </p>
+        </dt>
+        <dt style="text-align: center; width: 300px; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 220px; word-wrap: break-word">
+                LƯỢT XEM:
+                <br>
+                @Html.DisplayFor(model => model.CountView)
+            </p>
+        </dt>
+
+        <dt style="text-align: center; width: 200px; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px; width: 150px">
+                NGÀY TẠO:
+                <br>
+                @Html.DisplayFor(model => model.CreateDate)
+            </p>
+        </dt>
+
+        <dt style="text-align: center; width: 2000px; display: flex">
+            <p style="color: black; font-size: 20px; margin: 20px">
+                NỘI DUNG TRUYỆN:
+                <br>
+                @Html.DisplayFor(model => model.Content)
+            </p>
+        </dt>
+
+        <dt style="text-align: center; width: 460px; display: flex">
+            <p style="color:black;font-size:20px">
+                THUỘC TRUYỆN:
+                <br>
+                @Html.DisplayFor(model => model.StoryName)
+            </p>
+        </dt>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style=" margin-left: 1380px">
+            <input type="submit" value="Delete" class="btn btn-default" style="font-size: 20px; background-color: honeydew; border: 2px solid" /> |
+            @Html.ActionLink("TRỞ VỀ", "ControlPhim", null, new { @class = "back" })
+        </div>
+    }
+</div>
+<style>
+    .back {
+        font-size: 20px;
+        background-color: honeydew;
+        border: 2px solid black;
+    }
+</style>
+
+

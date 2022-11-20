@@ -1,0 +1,135 @@
+﻿@model KhotruyenM.Models.Chapter
+@{
+    ViewBag.Title = "EditChapter";
+    Layout = "~/Views/Shared/FormAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" enctype="multipart/form-data">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group" style=" display: flex">
+        <strong style="margin-left: 100px; font-size: 20px; color: black">
+            SỐ CHƯƠNG:
+        </strong>
+        <strong style="margin-left: 50px">
+            @Html.EditorFor(model => model.ChapterNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ChapterNumber, "", new { @class = "text-danger" })
+        </strong>
+
+        <strong style="margin-left: 100px; font-size: 20px; color: black">
+            TÊN CHƯƠNG:
+        </strong>
+        <strong style="margin-left: 50px">
+            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        </strong>
+    </div>
+
+        <div class="form-group" style=" display: flex">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                LƯỢT XEM:
+            </strong>
+            <strong style="margin-left: 71px">
+                @Html.EditorFor(model => model.CountView, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CountView, "", new { @class = "text-danger" })
+            </strong>
+
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                NGÀY TẠO:
+            </strong>
+            <strong style="margin-left: 82px">
+                @Html.EditorFor(model => model.CreateDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateDate, "", new { @class = "text-danger" })
+            </strong>
+
+        </div>
+
+        <div class="form-group" style=" display: flex">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                THUỘC TRUYỆN:
+            </strong>
+            <strong style="margin-left: 120px">
+                @Html.DropDownList("Story Name", new List<SelectListItem> { new SelectListItem{Text = "Tu Chân Nói Chuyện Phiếm Quần",Value = "2"},
+               new SelectListItem{Text = "Nhất Niệm Vĩnh Hằng", Value = "10003"},
+               new SelectListItem{Text = "BẮT ĐẦU CƯỚP MẤT HÀNG LONG THẬP BÁT CHƯỞNG", Value = "10004"},
+               new SelectListItem{Text = "TA ĐIỂM ĐẦY TỈ LỆ RƠI ĐỒ GIÁ TRỊ", Value = "10005"},
+               new SelectListItem{Text = "One Piece", Value = "10006"},
+           }, new { style = "width: 208px; margin-top: 10px; text-align: center; font-size: 20px", @class = "textbox", })
+                @Html.ValidationMessageFor(model => model.StoryName, "", new { @class = "text-danger" })
+            </strong>
+        </div>
+        <div class="form-group" style="display: flex">
+            <strong style="margin-left: 100px; font-size: 20px; color: black">
+                NỘI DUNG TRUYỆN:
+            </strong>
+            <strong style="margin-left: 0px">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control1" } })
+                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            </strong>
+        </div>
+
+        <div class="form-group" style=" margin-top: 20px; display: flex">
+            <div class="col-md-offset-2 col-md-10" style=" margin-left: 260px">
+                @Html.ActionLink("TRỞ VỀ", "Home", null, new { @class = "back" })
+                <input type="submit" value="Save" class="btn btn-default" style="font-size: 20px; margin-left: 900px; background-color: honeydew; border: 2px solid" />
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .form-control {
+        width: 1000px;
+        height: 35px;
+    }
+
+    .back {
+        font-size: 20px;
+        margin-left: -186px;
+        background-color: honeydew;
+        border: 2px solid black;
+    }
+    
+    .form-control1 {
+        width: 600px;
+        height: 200px;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+</style>
+@section uploadedit{
+    <script>
+        $(function () {
+            $('#btnUpload1').click(function () {
+                $('#fileUpload1').trigger('click');
+            });
+
+            $('#fileUpload1').change(function () {
+                if (window.FormData !== undefined) {
+                    var fileUpload = $('#fileUpload1').get(0);
+                    var files = fileUpload.files;
+                    var formData = new FormData();
+                    formData.append('file1', files[0]);
+                    $.ajax({
+                        type: 'POST',
+                        url: '/Admin/ProcessUpload1',
+                        contentType: false,
+                        processData: false,
+                        data: formData,
+                        success: function (urlImage) {
+                            $('#pictureUpload1').attr('src', urlImage);
+                            $('#Images').val(urlImage);
+                        },
+                        error: function (err) {
+                            alert(err.statusText);
+                        }
+                    });
+                }
+            })
+        });
+    </script>
+}

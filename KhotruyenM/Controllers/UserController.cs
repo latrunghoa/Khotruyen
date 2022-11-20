@@ -46,7 +46,7 @@ namespace KhotruyenM.Controllers
                 };
                 data.useries.Add(us);
                 data.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Story");
             }
             else
             {
@@ -91,19 +91,65 @@ namespace KhotruyenM.Controllers
                     Session["Taikhoanadmin"] = check;
                 }
                 Session["Bietdanh"] = check.DisplayName;
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Story");
             }
             else
             {
                 ViewBag.Error = "Tài khoản không đúng hoặc chưa đăng ký";
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Home", "Story");
             }
         }
 
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Story");
+        }
+
+        public ActionResult ChangeInformation(int id)
+        {
+            var edu = data.useries.First(n => n.UserId == id);
+            return View(edu);
+        }
+        [HttpPost]
+        public ActionResult ChangeInformation(int id, FormCollection cls, HttpPostedFileBase Upload2)
+        {
+            var ed = data.useries.First(n => n.UserId == id);
+            ed.UserId = id;
+            var tenvn = cls["UserName"];
+            var matkhau = cls["Password"];
+            var bietdanh = cls["DisplayName"];
+            var email = cls["Email"];
+            var anh = cls["Avatar"];
+            var ngaytao = Convert.ToDateTime(cls["CreateDate"]);
+            var idr = cls["RoleId"];
+            if (string.IsNullOrEmpty(tenvn))
+            {
+                ViewData["Error"] = "Có lỗi!!";
+            }
+            else
+            {
+                ed.UserName = tenvn.ToString();
+                ed.Password = matkhau.ToString();
+                ed.DisplayName = bietdanh.ToString();
+                ed.Email = email.ToString();
+                ed.Avatar = anh.ToString();
+                ed.CreateDate = ngaytao;
+                ed.RoleID = int.Parse(idr);
+                UpdateModel(ed);
+                data.SaveChanges();
+                return RedirectToAction("ControlUser");
+            }
+            return this.ChangeInformation(id);
+        }
+        public string ProcessUpload2(HttpPostedFileBase file2)
+        {
+            if (file2 == null)
+            {
+                return "";
+            }
+            file2.SaveAs(Server.MapPath("~/Content/Images/Avatar/" + file2.FileName));
+            return "/Content/Images/Avatar/" + file2.FileName;
         }
     }
 }

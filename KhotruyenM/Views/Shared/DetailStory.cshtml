@@ -14,6 +14,12 @@
     @Styles.Render("~/Content/css_detailstory")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
+@{
+    var ses = Session["Taikhoan"] as KhotruyenM.Models.Users;
+    var ses1 = Session["Taikhoanadmin"] as KhotruyenM.Models.Users;
+}
+
 <body>
     <!-- This is NavigationBar -->
     <div class="topMainPage">
@@ -22,7 +28,7 @@
 
     <div class="topNav  bg-light" style="z-index: 3;position: relative;">
         <nav class="container navbar navbar-expand-lg bg-light navbar-light">
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")"><h1>Kho<span style="color: #F18121;">truyện</span></h1></a>
+            <a class="navbar-brand" href="@Url.Action("Home", "Story")"><h1>Kho<span style="color: #F18121;">truyện</span></h1></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -128,8 +134,42 @@
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg>
                 </div>
-                <div class="ml-lg-2 btnLogin">Đăng ký</div>
-                <div class="ml-lg-2 btnLogin">Đăng nhập</div>
+                @if (ses != null)
+                {
+                    <li class="nav-item dropdown ">
+                        <div class="nav-link dropdown-toggle btnLogin " id="navbarDropdown" data-toggle="dropdown"
+                             aria-haspopup="true" aria-expanded="false">Trang cá nhân</div>
+                        <div class="dropdown-menu mega-dropdown-userfeature" aria-labelledby="navbarDropdown">
+                            <div class="d-flex flex-column dropdown-distance">
+                                <a href="@Url.Action("Home", "Admin")">Trang Admin</a>
+                                <a href="@Url.Action("Index", "Home")">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </li>
+                }
+                else
+                {
+                    if (ses1 != null)
+                    {
+                        <li class="nav-item dropdown ">
+                            <div class="nav-link dropdown-toggle btnLogin " id="navbarDropdown" data-toggle="dropdown"
+                                 aria-haspopup="true" aria-expanded="false">Trang cá nhân</div>
+                            <div class="dropdown-menu mega-dropdown-userfeature" aria-labelledby="navbarDropdown">
+                                <div class="d-flex flex-column dropdown-distance">
+                                    <a href="@Url.Action("ChangeInformation", "User")">Thông tin tài khoản</a>
+                                    <a href="@Url.Action("Logout", "User")">Đăng xuất</a>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <div>
+                            <a class="ml-lg-2 btnLogin" href="@Url.Action("Register", "User")">Đăng ký</a>
+                            <a class="ml-lg-2 btnLogin" href="@Url.Action("Login", "User")">Đăng nhập</a>
+                        </div>
+                    }
+                }
             </div>
         </nav>
     </div>
@@ -145,10 +185,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-3 footers-one">
                     <div class="footers-logo">
-                        <img src="../imageMainPage/icon.png" alt="Logo" style="width:100px;">
+                        <img src="~/Content/Images/logo.png" alt="Logo" style="width:100px;">
                     </div>
                     <div class="footers-info mt-3">
-                        <p>Website cập nhật truyện sớm nhất Trường Đại học Bà Rịa - Vũng Tàu</p>
+                        <p>Website cập nhật truyện sớm nhất </p>
                     </div>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-2x social"></i></a>
@@ -204,7 +244,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-12 pt-3">
-                    <p class="text-muted">© 2018 xyz Software Pvt. Ltd.</p>
+                    <p class="text-muted"> © 2022 Kho Truyện © </p>
                 </div>
             </div>
         </div>
